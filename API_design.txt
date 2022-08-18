@@ -1,0 +1,44 @@
+USER
+User is just an account on your platform. Users are associated with a Role. 
+Think of Users as a Parent, Teacher, Principal, Administrator etc.
+
+POST /users             ==> Signup the user and store the password after hashing    
+POST /users/login       ==> Signin the user, compare the password, and only if it is true, produce a JWT Token
+GET /users              ==> Returns a list of all users of the platform
+GET /user/:id           ==> Returns a single user with that id
+
+-------------------------------------------------------------------
+
+ROLE
+Roles are a way to assign scopes to a User.
+Possible scopes can be:
+    user-get
+    user-create
+    student-get
+    student-create
+    role-get
+    school-get
+    school-create
+    school-students
+
+POST /roles         ==> Create a role, say, Manager, and store its scopes as well, say, user-get, school-get, school-create
+GET /roles          ==> Returns a list of all roles 
+
+-------------------------------------------------------------------
+
+STUDENT
+Student are students associated with a User and a School. 
+One school can have multiple students associated with them. 
+One user can have multiple students associated with them.
+
+POST /students      ==> Create a student user
+GET /students       ==> Returns a list of students
+
+-------------------------------------------------------------------
+
+SCHOOL
+School is a model of schools. One school can have multiple students associated with them.
+
+POST /schools                       ==> Create a school
+GET /schools                        ==> Returns a list of schools
+GET /schools/:school_id/students    ==> Returns a list of students from a school with that school_id
