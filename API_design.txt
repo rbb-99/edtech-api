@@ -5,7 +5,7 @@ Think of Users as a Parent, Teacher, Principal, Administrator etc.
 POST /users             ==> Signup the user and store the password after hashing    
 POST /users/login       ==> Signin the user, compare the password, and only if it is true, produce a JWT Token
 GET /users              ==> Returns a list of all users of the platform
-GET /user/:id           ==> Returns a single user with that id
+GET /users/:id           ==> Returns a single user with that id
 
 -------------------------------------------------------------------
 
